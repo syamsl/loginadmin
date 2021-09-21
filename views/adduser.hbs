@@ -1,0 +1,42 @@
+<header>
+    <!-- As a heading -->
+    <nav class="navbar navbar-light bg-gradient bg-primary">
+        <span class="navbar-brand mb-0 h1 p-2 ms-4" id="titl" style="font-weight: 400; color:aliceblue">
+            Admin Panel
+        </span>
+            <a class="btn btn-info bg-gradient p-1 me-3" style="color:aliceblue;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/index/logout" type="button">Logout</a>
+    </nav>
+</header>
+
+<div class="align-tems-center mt-4 container" style="font-size: large;">
+    <div>
+        <h2>ADD USER</h2>
+    </div>
+      
+      <div class="mt-2">
+          <form method="POST" action="/admin/adduser" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"></label>
+                                <input type="text" name="name" id="sign-name" placeholder="Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile"></label>
+                                <input type="number" name="mobile" id="sign-mobile" placeholder="Phone Number"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"></label>
+                                <input type="email" name="email" id="sign-email" placeholder="Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password"/>
+                            </div>
+                           
+                            <div class="form-group form-button">
+                                <input type="submit" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+      </div>
+    
+</div>
+</section>

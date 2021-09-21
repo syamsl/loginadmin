@@ -1,0 +1,36 @@
+<header>
+    <!-- As a heading -->
+    <nav class="navbar navbar-light bg-gradient bg-primary">
+        <span class="navbar-brand mb-0 h1 p-2 ms-4" id="titl" style="font-weight: 400; color:aliceblue">
+            {{#if user}}
+            {{user.name}}
+            {{else}}
+            HOME
+            {{/if}}
+        </span>
+             {{#if user}}
+            <a class="btn btn-info bg-gradient p-1 me-3" style="color:aliceblue;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/user/logout" type="button">Logout</a>
+            {{else}}
+            <a class="btn btn-info bg-gradient p-1 me-3" style="color:aliceblue;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/user/login" type="button">Login</a>
+            {{/if}}
+            
+    </nav>
+</header>
+
+<section>
+    <div class="container mt-5"></div>
+    <div class="row ms-5 ps-4">
+        {{#each products}}
+        <div class="col-md-3">
+            <div class="card" style="width: 19rem;">
+                <img class="card-img-top img" src="{{this.image}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>

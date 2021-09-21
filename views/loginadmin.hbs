@@ -1,0 +1,28 @@
+   <section class="sign-in mt-5">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Admin Login</h2>
+
+                        <form action='/admin/submit' method="POST" class="register-form" id="login-form">
+                            <div class="form-group">
+                                <label for="your_name"></label>
+                                <input type="text" name="name" id="your_name" placeholder="Username"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"></label>
+                                <input type="password" name="pass" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit"  id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
