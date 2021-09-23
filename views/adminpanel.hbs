@@ -1,42 +1,59 @@
-<header>
+<section class="container-fluid p-0">
+ 
+    <header style="position:fixed;width:100%;z-index: 1;">
     <!-- As a heading -->
     <nav class="navbar navbar-light bg-gradient bg-primary">
-        <span class="navbar-brand mb-0 h1 p-2 ms-4" id="titl" style="font-weight: 400; color:aliceblue">
-            {{#if admin}}
-            {{admin}}
-            {{/if}}
-        </span>
-            <a class="btn btn-info bg-gradient p-1 me-3" style="color:aliceblue;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/admin/logout" type="button">Logout</a>
+      <span class="navbar-brand mb-0 h1 p-2 ms-4" id="titl" style="font-weight: 400; color:aliceblue">
+        Admin Panel
+      </span>
+      <a class="btn btn-info bg-gradient p-1 me-3"
+        style="color:aliceblue;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/admin/logout"
+        type="button">Logout</a>
     </nav>
-</header>
+  </header>
+ 
+  
 
-    <div class="align-tems-center mt-4 container" style="font-size: large;">
-      <div class="row">
-        <a href="/admin/adduser" class="btn btn-success" style="width: 8rem;">ADD USER</a>
-      </div>
-    <table class="table table-hover">
-          <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Mobile</th>
-      <th scope="col">Email</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
+  <section>
+    
+    <div class="align-tems-center container-fluid p-4" style="font-size: large;">
+      <div class="row p-5">
+      <a href="/admin/adduser" class="btn btn-success" style="width: 8rem;">ADD USER</a>
+    </div>
+      <table class="table" id="table_id">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
 
-      {{#each data}}
-    <tr>
-      <td>{{this.name}}</td>
-      <td>{{this.mobile}}</td>
-      <td>{{this.email}}</td>
-      <td><button class="btn btn-success" >Edit</button></td>
-      <td><button class="btn btn-danger">Delete</button></td>
-    </tr>
-    {{/each}}
+          {{#each data}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.mobile}}</td>
+            <td>{{this.email}}</td>
+            <td><a href="/admin/edit-data/{{this._id}}" class="btn btn-success">Edit</a>
+              <a href="/admin/delete-data/{{this._id}}"
+                onclick="return confirm('Are you sure to delete {{this.name}} ?')" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+          {{/each}}
 
-  </tbody>
-    </table>
-</div>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script>
+    $(function () {
+      $('#table_id').DataTable();
+    });
+  </script>
+  
+</section>
+
 </section>

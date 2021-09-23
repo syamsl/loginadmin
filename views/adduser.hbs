@@ -1,10 +1,12 @@
-<header>
+<header >
     <!-- As a heading -->
     <nav class="navbar navbar-light bg-gradient bg-primary">
         <span class="navbar-brand mb-0 h1 p-2 ms-4" id="titl" style="font-weight: 400; color:aliceblue">
             Admin Panel
         </span>
-            <a class="btn btn-info bg-gradient p-1 me-3" style="color:aliceblue;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/index/logout" type="button">Logout</a>
+        <a class="btn btn-info bg-gradient p-1 me-3"
+            style="color:aliceblue;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/admin/logout"
+            type="button">Logout</a>
     </nav>
 </header>
 
@@ -12,31 +14,41 @@
     <div>
         <h2>ADD USER</h2>
     </div>
-      
-      <div class="mt-2">
-          <form method="POST" action="/admin/adduser" class="register-form" id="register-form">
-                            <div class="form-group">
-                                <label for="name"></label>
-                                <input type="text" name="name" id="sign-name" placeholder="Name"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="mobile"></label>
-                                <input type="number" name="mobile" id="sign-mobile" placeholder="Phone Number"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="email"></label>
-                                <input type="email" name="email" id="sign-email" placeholder="Email"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="pass"></label>
-                                <input type="password" name="pass" id="pass" placeholder="Password"/>
-                            </div>
-                           
-                            <div class="form-group form-button">
-                                <input type="submit" id="signup" class="form-submit" value="Register"/>
-                            </div>
-                        </form>
-      </div>
-    
+
+    <div class="mt-2">
+        <form method="POST" action="/admin/adduser" class="register-form" id="register-form">
+        {{#if err}}
+        <p class="text-danger">{{message}}</p>
+        {{/if}}
+        <span class="text-danger" id="senderror"></span>
+            <div class="form-group">
+                <label for="name"></label>
+                <input type="text" name="name" id="valname" placeholder="Name" />
+                <span class="text-danger" id="nameerror"></span>
+            </div>
+            <div class="form-group">
+                <label for="mobile"></label>
+                <input type="number" name="mobile" id="valphone" placeholder="Phone Number" />
+                <span class="text-danger" id="numerror"></span>
+            </div>
+            <div class="form-group">
+                <label for="email"></label>
+                <input name="email" id="valmail" placeholder="Email" />
+                <span class="text-danger" id="mailerror"></span>
+            </div>
+            <div class="form-group">
+                <label for="pass"></label>
+                <input type="password" name="pass" id="valpass" placeholder="Password" />
+                <span class="text-danger" id="passerror"></span>
+            </div>
+
+            <div class="form-group form-button">
+                <input type="submit" class="form-submit" value="Register" />
+            </div>
+        </form>
+    </div>
+
 </div>
 </section>
+{{!-- <script src="../public/script/adduser.js"></script> --}}
+<script src="/script/adduser.js"></script>

@@ -5,20 +5,28 @@ var userHelper =  require('../helpers/user-helper')
 
 
 router.get('/', (req, res)=>{
-    if(!req.session.userLoggedIn){
-        res.render('signup');
-    }else{
+    if(req.session.user){
         res.redirect('/')
+    }else{
+        if(req.query.existerr){
+            res.render('signup',{message:'Email or Mobile number already exist',err:true})
+        }else{
+            res.render('signup');
+        }
     }
     
 });
 
 
 router.get('/login',(req, res)=>{
-    if(!req.session.userLoggedIn){
-        res.render('login');
-    }else{
+    if(req.session.user){
         res.redirect('/')
+    }else{
+        if(req.query.loginerr){
+            res.render('login',{loginErr:'Invalid username and password'});
+        }else{
+            res.render('login');
+        }
     }
 })
 
@@ -29,8 +37,12 @@ router.post('/signup',(req, res)=>{
     //     res.render('login') 
     //  })
     userHelper.doSignup(req.body).then((response)=>{
-        console.log(response);
-        res.render('login') 
+        if(response.status){
+            res.redirect('/user?existerr=true')
+        }else{
+            res.redirect('/user/login')
+        }
+        
     })  
 })
 
@@ -40,11 +52,12 @@ router.post('/regis',(req, res)=>{
     userHelper.doLogin(req.body).then((response)=>{
         console.log(response.status);
 
-        if(response.status){
-            req.session.userLoggedIn = true;
-            req.session.user = response.user
-            res.redirect('/')
+        if(response.status==false){
+
+            res.redirect('/user/login?loginerr=true')
         }else{
+            req.session.user = response.user
+            req.session.userLoggedIn = true;
             res.redirect('/user/login')
         }
     })
@@ -53,7 +66,7 @@ router.post('/regis',(req, res)=>{
 })
 
 router.get('/logout',(req, res)=>{
-    req.session.destroy();
+    req.session.user=null;
     res.redirect('/user/login')
 })
 

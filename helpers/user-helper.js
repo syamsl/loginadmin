@@ -2,16 +2,25 @@ var db = require('../config/connection')
 var collection = require('../config/collection')
 const bcrypt = require('bcryptjs')
 const { USER_COLLECTION } = require('../config/collection')
+const { response } = require('express')
 
 module.exports={
     doSignup:(userData)=>{
-        return new Promise(async(resolve, reject)=>{
-        userData.pass = await bcrypt.hash(userData.pass, 10)
-        db.get().collection(collection.USER_COLLECTION).insertOne(userData).then((data)=>{
-            resolve(data)
-        })
+                return new Promise(async(resolve, reject)=>{
+                let response={}
+                let user = await db.get().collection(collection.USER_COLLECTION).findOne({$or: [{email:userData.email},{mobile:userData.mobile}]})
+                if(user){
+                    response.status = true;
+                    resolve(response)
 
-        })
+                }else{
+                    response.status = false;
+                    userData.pass = await bcrypt.hash(userData.pass, 10)
+                    db.get().collection(collection.USER_COLLECTION).insertOne(userData).then((response)=>{
+                        resolve(response)   
+                    })
+                }
+                })
 
     },
     doLogin:(userData)=>{

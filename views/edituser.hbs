@@ -1,0 +1,42 @@
+<header >
+    <!-- As a heading -->
+    <nav class="navbar navbar-light bg-gradient bg-primary">
+        <span class="navbar-brand mb-0 h1 p-2 ms-4" id="titl" style="font-weight: 400; color:aliceblue">
+            Admin Panel
+        </span>
+            <a class="btn btn-info bg-gradient p-1 me-3" style="color:aliceblue;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="/admin/logout" type="button">Logout</a>
+    </nav>
+</header>
+
+<div class="align-tems-center mt-4 container" style="font-size: large;">
+    <div>
+        <h2>EDIT USER</h2>
+    </div>
+      
+      <div class="mt-2">
+          <form method="POST" action="/admin/edit-data/{{data._id}}" class="edit-form" id="register-form">
+                            <div class="form-group">
+                                <span class="text-danger" id="sendediterror"></span>
+                                <label for="name"></label>
+                                <input type="text" name="name" id="editname" placeholder="Name" value="{{data.name}}"/>
+                                <span class="text-danger" id="editnameerror"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile"></label>
+                                <input type="number" name="mobile" id="editphone" placeholder="Phone Number" value="{{data.mobile}}"/>
+                                <span class="text-danger" id="editnumerror"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"></label>
+                                <input type="email" name="email" id="editmail" placeholder="Email" value="{{data.email}}"/>
+                                <span class="text-danger" id="editmailerror"></span>
+                            </div>
+                           
+                            <div class="form-group form-button">
+                                <input type="submit" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+      </div>
+    
+</div>
+</section>

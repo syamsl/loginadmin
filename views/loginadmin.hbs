@@ -1,17 +1,14 @@
    <section class="sign-in mt-5">
             <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-                    </div>
-
+                <div>
                     <div class="signin-form">
-                        <h2 class="form-title">Admin Login</h2>
+                        <h2 class="form-title mt-4">Admin Login</h2>
 
                         <form action='/admin/submit' method="POST" class="register-form" id="login-form">
+                        <p class="text-danger">{{message}}</p>
                             <div class="form-group">
                                 <label for="your_name"></label>
-                                <input type="text" name="name" id="your_name" placeholder="Username"/>
+                                <input name="name" id="your_name" placeholder="Username"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"></label>
