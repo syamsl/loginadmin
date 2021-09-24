@@ -39,6 +39,7 @@
 //             e.preventDefault();
 //         }
 //     })
+
 //     $("#valphone").keyup(function(){
 //         var num=this.value;
 //         var numRegex = /^[0-9]+$/;
@@ -76,7 +77,7 @@
 //         console.log('pass');
 //         if(pass.length<4){
 //             passcheck=false;
-//             $("#passerror").text("Password characters should not be less than 4")
+//             $("#passerror").text("Password characters should be more than 3")
 //         }else{
 //             passcheck=true;
 //             $("#passerror").text("")
@@ -84,23 +85,42 @@
 //     })
 // })
 
+// // function valcheck(){
+// //     if('namecheck==true && numcheck==true && mailcheck==true && passcheck==true'){
+// //         return true
+// //     }else{
+// //         return false
+// //     }
+// // }
+
+
 // $("#register-form").submit((e)=>{
 //     e.preventDefault()
-
-//     if(namecheck==true && numcheck==true && mailcheck==true && passcheck==true){
-//         $.ajax({
-//             url:"",
-//             data:$("#register-form").serialize(),
-//             method:"post",
-//             success:function (response){
-//                 alert("Form submitted successfully")
-//                 location.replace("/admin")
-//             },
-//             error:function (err){
-//                 alert("Something Error")
-//             }
-//         })
+//     if('namecheck==true && numcheck==true && mailcheck==true && passcheck==true'){
+//         console.log(namecheck,numcheck,mailcheck,passcheck);
+//         $("#register-form").submit()
 //     }else{
 //         $("#senderror").text("Form not filled")
 //     }
 // })
+
+// // $("#register-form").submit((e)=>{
+// //     e.preventDefault()
+
+// //     if(namecheck==true && numcheck==true && mailcheck==true && passcheck==true){
+// //         $.ajax({
+// //             url:"",
+// //             data:$("#register-form").serialize(),
+// //             method:"post",
+// //             success:function (response){
+// //                 alert("Form submitted successfully")
+// //                 location.replace("/admin")
+// //             },
+// //             error:function (err){
+// //                 alert("Something Error")
+// //             }
+// //         })
+// //     }else{
+// //         $("#senderror").text("Form not filled")
+// //     }
+// // })

@@ -1,10 +1,10 @@
-// let namecheck=false
-// let numcheck=false
-// let mailcheck=false
-// let passcheck=false
+// var signnamecheck=false
+// var signnumcheck=false
+// var signmailcheck=false
+// var signpasscheck=false
 
 // $(document).ready(function(){
-//     $("#signname").keypress(function(ev){
+//     $("#signupname").keypress(function(ev){
 //         var keyName = ev.which;
 //         let inp = this.value
 //         let x = inp.length-1
@@ -13,21 +13,21 @@
 //             ev.preventDefault();
 //         }
 //     })
-//     $("#signname").keyup(function(){
+//     $("#signupname").keyup(function(){
 
 //         var text=this.value;
 //         var nameRegex = /^[A-Za-z ]+$/;
 //         if(text.charCodeAt(0)==32){
-//             namecheck=false;
+//             signnamecheck=false;
 //             $("#signnameerror").text("First character should not be a space")
 //         }else if(!text.match(nameRegex)){
-//             namecheck=false;
+//             signnamecheck=false;
 //             $("#signnameerror").text("Enter valid name")
 //         }else if(text.length<3){
-//             namecheck=false;
+//             signnamecheck=false;
 //             $("#signnameerror").text("Enter name with more than 2 character")
 //         }else if(text.match(nameRegex)){
-//             namecheck=true;
+//             signnamecheck=true;
 //             $("#signnameerror").text("")
 //         }
 //     })
@@ -43,10 +43,10 @@
 //         var num=this.value;
 //         var numRegex = /^[0-9]+$/;
 //         if(num.length<10){
-//             numcheck=false;
+//             signnumcheck=false;
 //             $("#signnumerror").text("Enter 10 digits")
 //         }else if(num.match(numRegex) && num.length==10){
-//             numcheck=true;
+//             signnumcheck=true;
 //             $("#signnumerror").text("")
 //         }
 //     })
@@ -63,10 +63,10 @@
 //         var mail=this.value;
 //         var mailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 //         if(!mail.match(mailRegex)){
-//             mailcheck=false;
+//             signmailcheck=false;
 //             $("#signmailerror").text("Invalid mail")
 //         }else if(mail.match(mailRegex)){
-//             mailcheck=true;
+//             signmailcheck=true;
 //             $("#signmailerror").text("")
 //         }
 //     })
@@ -74,11 +74,11 @@
 //     $("#signpass").keyup(function(){
 //         var pass = this.value;
 //         console.log('pass');
-//         if(pass.length<5){
-//             passcheck=false;
-//             $("#signpasserror").text("Password characters should be more than 5")
+//         if(pass.length<4){
+//             signpasscheck=false;
+//             $("#signpasserror").text("Password characters should be more than 3")
 //         }else{
-//             passcheck=true;
+//             signpasscheck=true;
 //             $("#signpasserror").text("")
 //         }
 //     })
@@ -87,7 +87,7 @@
 // $("#sign-up").submit((e)=>{
 //     e.preventDefault()
 
-//     if(namecheck==true && numcheck==true && mailcheck==true && passcheck==true){
+//     if(signnamecheck==true && signnumcheck==true && signmailcheck==true && signpasscheck==true){
 //         $.ajax({
 //             url:"",
 //             data:$("#sign-up").serialize(),

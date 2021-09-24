@@ -63,7 +63,7 @@ router.post('/adduser', (req,res)=>{
         res.redirect('/admin/addUser?existerr=true')
         }
         res.redirect('/admin/submit')
-    })
+    }).catch((err)=>{})
 })
 
 router.get('/logout', (req, res)=>{
